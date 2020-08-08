@@ -20,6 +20,7 @@
     "firebase": "^7.17.1",
     "rxfire": "^3.13.5",
     "rxjs": "^6.6.2",
-    "sirv-cli": "^1.0.0"
+    "sirv-cli": "^1.0.0",
+    "timeUtils": "^2.0.0"
   }
 }

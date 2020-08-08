@@ -1,3 +1,7 @@
+<script>
+  export let name;
+</script>
+
 <style>
   header {
     background: #f7f7f7;
@@ -6,13 +10,8 @@
     margin: 0;
     text-align: center;
   }
-  img {
-    max-width: 280px;
-  }
 </style>
 
 <header>
-  <h1>
-    <img src="/img/logo.png" alt="Saven Logo" />
-  </h1>
+  <h1>Welcome to {name}</h1>
 </header>
