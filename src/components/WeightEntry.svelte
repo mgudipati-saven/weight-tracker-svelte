@@ -1,6 +1,8 @@
 <script>
   import { fade, fly } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
+  import { formatDate } from "timeUtils";
+
   const dispatch = createEventDispatcher();
 
   function remove() {
@@ -10,6 +12,8 @@
   export let id; // document ID
   export let date;
   export let value;
+
+  let format = "#{m}/#{d}/#{Y}";
 </script>
 
 <style>
@@ -23,8 +27,18 @@
   }
 </style>
 
-<li in:fly={{ x: 900, duration: 500 }} out:fade>
+<tr>
+  <td>{formatDate(date.toDate(), format)}</td>
+  <td>{value}</td>
+  <td>
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <!-- svelte-ignore a11y-missing-content -->
+    <a class="delete" on:click={remove} />
+  </td>
+</tr>
+
+<!-- <li in:fly={{ x: 900, duration: 500 }} out:fade>
   <span>{date}</span>
   <span>{value}</span>
-  <button class="is-button" on:click={remove}>🗑️</button>
-</li>
+  <a class="delete" on:click={remove} />
+</li> -->

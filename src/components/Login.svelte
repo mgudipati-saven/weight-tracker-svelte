@@ -4,6 +4,8 @@
 
   import Profile from "./Profile.svelte";
   import Weights from "./Weights.svelte";
+  import Tabs from "../shared/Tabs.svelte";
+  import Chart from "./Chart.svelte";
 
   // the user logged in
   let user;
@@ -14,6 +16,13 @@
   // function to login the user
   const login = () => {
     auth.signInWithPopup(googleProvider);
+  };
+
+  // tabs
+  let items = ["Profile", "Weights", "Progress"];
+  let activeItem = "Profile";
+  const tabChange = (e) => {
+    activeItem = e.detail;
   };
 </script>
 
@@ -68,12 +77,19 @@
   }
 </style>
 
-<section class="hero is-success is-fullheight">
-  <div class="hero-body">
+<section class="hero is-fullheight">
+  <div class="hero-head">
     <div class="container has-text-centered">
       <div class="column is-4 is-offset-4">
         {#if user}
-          <Profile {user} />
+          <Tabs {items} {activeItem} on:tabChange={tabChange} />
+          {#if activeItem === 'Profile'}
+            <Profile {user} />
+          {:else if activeItem === 'Weights'}
+            <Weights uid={user.uid} />
+          {:else if activeItem === 'Progress'}
+            <Chart uid={user.uid} />
+          {/if}
         {:else}
           <h3 class="title has-text-black">Weight Tracker Login</h3>
           <hr class="login-hr" />

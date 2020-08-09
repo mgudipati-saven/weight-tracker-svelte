@@ -1,18 +1,33 @@
 <script>
-  import { afterUpdate } from "svelte";
+  import { db } from "../firebase";
+  import { collectionData } from "rxfire/firestore";
+  import { startWith } from "rxjs/operators";
+  import { onMount, afterUpdate } from "svelte";
+
   import Chart from "chart.js";
 
-  export let data;
+  export let uid;
+
+  const query = db
+    .collection("weights")
+    .where("uid", "==", uid)
+    .orderBy("date");
+
+  const weights = collectionData(query, "id").pipe(startWith([]));
+
+  let data = [];
 
   const createChart = () => {
     var ctx = document.getElementById("myChart");
-
+    $weights.forEach((wt) => {
+      data.push({ x: wt.date.toDate(), y: wt.value });
+    });
     var myChart = new Chart(ctx, {
       type: "line",
       data: {
         datasets: [
           {
-            label: "Weights",
+            label: "Weight",
             data,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",

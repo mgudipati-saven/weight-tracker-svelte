@@ -35,21 +35,46 @@
 </script>
 
 <style>
-  input {
-    display: block;
-  }
+
 </style>
 
-<Datepicker format={dateFormat} bind:formattedSelected bind:selected={date}>
-  <button class="custom-button">{formattedSelected}</button>
-</Datepicker>
-<input type="float" bind:value />
-<button class="custom-button" on:click={add}>ADD</button>
+<div class="content has-text-centered">
+  <div class="columns is-mobile">
+    <div class="column">
+      <Datepicker
+        format={dateFormat}
+        bind:formattedSelected
+        bind:selected={date}>
+        <button class="button is-dark is-quarter">{formattedSelected}</button>
+      </Datepicker>
+    </div>
+    <div class="column is-half">
+      <input class="input" type="float" placeholder="Weight input" bind:value />
+    </div>
+    <div class="column">
+      <button class="button is-primary is-quarter" on:click={add}>ADD</button>
+    </div>
+  </div>
 
-<ul>
-  {#each $weights as wt}
-    <WeightEntry {...wt} on:remove={removeEntry} />
-  {/each}
-</ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Weight</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each $weights as wt}
+        <WeightEntry {...wt} on:remove={removeEntry} />
+      {/each}
+    </tbody>
+  </table>
 
-<button class="button is-info" on:click={add}>Add Weight</button>
+  <!-- <ul>
+    {#each $weights as wt}
+      <WeightEntry {...wt} on:remove={removeEntry} />
+    {/each}
+  </ul> -->
+
+</div>

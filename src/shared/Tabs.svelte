@@ -16,7 +16,7 @@
     padding: 0;
     list-style-type: none;
   }
-  li {
+  div {
     margin: 0 16px;
     font-size: 18px;
     color: #555;
@@ -29,12 +29,13 @@
   }
 </style>
 
-<div class="tabs">
-  <ul>
-    {#each items as item}
-      <li on:click={() => dispatch('tabChange', item)}>
-        <div class:active={item === activeItem}>{item}</div>
-      </li>
-    {/each}
-  </ul>
+<div class="columns is-mobile">
+  {#each items as item}
+    <div
+      on:click={() => dispatch('tabChange', item)}
+      class="column"
+      class:active={item === activeItem}>
+      {item}
+    </div>
+  {/each}
 </div>
