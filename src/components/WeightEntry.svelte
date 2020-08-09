@@ -27,7 +27,7 @@
   }
 </style>
 
-<tr>
+<tr in:fly={{ x: 900, duration: 500 }} out:fade>
   <td>{formatDate(date.toDate(), format)}</td>
   <td>{value}</td>
   <td>
