@@ -4,7 +4,8 @@
   export let user;
 </script>
 
-<h3 class="title has-text-black">Welcome {user.displayName}!</h3>
+<h3 class="title has-text-black">Welcome</h3>
+<h3 class="subtitle has-text-black">{user.displayName}!</h3>
 <hr class="login-hr" />
 <div class="box">
   <figure class="avatar">

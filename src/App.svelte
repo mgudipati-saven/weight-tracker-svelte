@@ -9,6 +9,7 @@
     font-family: "Questrial", sans-serif;
     font-size: 14px;
     font-weight: 300;
+    overflow-x: hidden;
   }
 </style>
 

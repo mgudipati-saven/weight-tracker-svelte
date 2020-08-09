@@ -48,11 +48,11 @@
         <button class="button is-dark is-quarter">{formattedSelected}</button>
       </Datepicker>
     </div>
-    <div class="column is-half">
-      <input class="input" type="float" placeholder="Weight input" bind:value />
+    <div class="column is-quarter">
+      <input class="input" type="float" placeholder="New Weight" bind:value />
     </div>
     <div class="column">
-      <button class="button is-primary is-quarter" on:click={add}>ADD</button>
+      <button class="button is-primary" on:click={add}>ADD</button>
     </div>
   </div>
 

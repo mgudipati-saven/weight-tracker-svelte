@@ -57,6 +57,9 @@
               time: {
                 unit: "day",
               },
+              ticks: {
+                source: "data",
+              },
             },
           ],
         },
@@ -67,4 +70,4 @@
   afterUpdate(createChart);
 </script>
 
-<canvas id="myChart" width="400" height="400" />
+<canvas id="myChart" width="400" height="500" />
