@@ -30,51 +30,62 @@
 
   function removeEntry(event) {
     const { id } = event.detail;
+    console.log(id);
     db.collection("weights").doc(id).delete();
   }
 </script>
 
 <style>
-
+  .btn {
+    @apply font-bold py-2 px-2 rounded;
+  }
+  .btn-gray {
+    @apply bg-gray-500 text-white;
+  }
+  .btn-gray:hover {
+    @apply bg-gray-700;
+  }
+  .btn-green {
+    @apply bg-green-500 text-white;
+  }
+  .btn-green:hover {
+    @apply bg-green-700;
+  }
 </style>
 
-<div class="content has-text-centered">
-  <div class="columns is-mobile">
-    <div class="column">
-      <Datepicker
-        format={dateFormat}
-        bind:formattedSelected
-        bind:selected={date}>
-        <button class="button is-dark is-quarter">{formattedSelected}</button>
-      </Datepicker>
-    </div>
-    <div class="column is-quarter">
-      <input class="input" type="float" placeholder="New Weight" bind:value />
-    </div>
-    <div class="column">
-      <button class="button is-primary" on:click={add}>ADD</button>
-    </div>
-  </div>
+<div class="flex items-center space-x-4 py-2">
+  <Datepicker format={dateFormat} bind:formattedSelected bind:selected={date}>
+    <button class="btn btn-gray">{formattedSelected}</button>
+  </Datepicker>
+  <input
+    class="flex-grow shadow appearance-none border rounded py-2 px-3
+    text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    type="float"
+    placeholder="New Weight"
+    bind:value />
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Weight</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each $weights as wt}
-        <WeightEntry {...wt} on:remove={removeEntry} />
-      {/each}
-    </tbody>
-  </table>
+  <button class="btn btn-green inline-flex items-center" on:click={add}>
+    <svg viewBox="0 0 20 20" fill="currentColor" class="plus w-6 h-6">
+      <path
+        fill-rule="evenodd"
+        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0
+        110-2h3V6a1 1 0 011-1z"
+        clip-rule="evenodd" />
+    </svg>
+  </button>
+</div>
 
-  <!-- <ul>
+<div class="grid grid-cols-3 gap-1 divide-y">
+  <th>Date</th>
+  <th>Weight</th>
+  <th>Actions</th>
+  {#each $weights as wt}
+    <WeightEntry {...wt} on:remove={removeEntry} />
+  {/each}
+</div>
+
+<!-- <ul>
     {#each $weights as wt}
       <WeightEntry {...wt} on:remove={removeEntry} />
     {/each}
   </ul> -->
-
-</div>

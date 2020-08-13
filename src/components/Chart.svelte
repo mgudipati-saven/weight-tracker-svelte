@@ -15,13 +15,8 @@
 
   const weights = collectionData(query, "id").pipe(startWith([]));
 
-  let data = [];
-
-  const createChart = () => {
+  const createChart = (data) => {
     var ctx = document.getElementById("myChart");
-    $weights.forEach((wt) => {
-      data.push({ x: wt.date.toDate(), y: wt.value });
-    });
     var myChart = new Chart(ctx, {
       type: "line",
       data: {
@@ -67,7 +62,14 @@
     });
   };
 
-  afterUpdate(createChart);
+  afterUpdate(() => {
+    let data = [];
+    $weights.forEach((wt) => {
+      data.push({ x: wt.date.toDate(), y: wt.value });
+    });
+
+    createChart(data);
+  });
 </script>
 
 <canvas id="myChart" width="400" height="500" />

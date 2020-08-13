@@ -16,11 +16,16 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "chart.js": "^2.9.3",
     "firebase": "^7.17.1",
+    "postcss": "^7.0.32",
+    "postcss-load-config": "^2.1.0",
     "rxfire": "^3.13.5",
     "rxjs": "^6.6.2",
     "sirv-cli": "^1.0.0",
+    "svelte-preprocess": "^4.0.10",
+    "tailwindcss": "^1.6.2",
     "timeUtils": "^2.0.0"
   }
 }
