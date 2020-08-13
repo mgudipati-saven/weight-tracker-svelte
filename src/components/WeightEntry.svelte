@@ -38,9 +38,13 @@
 </style>
 
 <!-- <div in:fly={{ x: 900, duration: 500 }} out:fade> -->
-<div class="text-center">{formatDate(date.toDate(), format)}</div>
-<div class="text-center">{Number(value).toFixed(1)}</div>
-<div class="text-right">
+<div in:fly={{ x: 900, duration: 500 }} out:fade class="text-center">
+  {formatDate(date.toDate(), format)}
+</div>
+<div in:fly={{ x: 900, duration: 500 }} out:fade class="text-center">
+  {Number(value).toFixed(1)}
+</div>
+<div in:fly={{ x: 900, duration: 500 }} out:fade class="text-right">
   <!-- svelte-ignore a11y-missing-attribute -->
   <!-- svelte-ignore a11y-missing-content -->
   <button class="btn btn-red inline-flex items-center mt-1" on:click={remove}>
