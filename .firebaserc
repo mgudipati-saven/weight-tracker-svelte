@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "weight-tracker-9f6a8"
+  },
+  "targets": {
+    "weight-tracker-9f6a8": {
+      "hosting": {
+        "tailwind": [
+          "wt-tracker"
+        ],
+        "bulma": [
+          "weight-tracker-9f6a8"
+        ]
+      }
+    }
   }
 }

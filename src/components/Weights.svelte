@@ -6,7 +6,7 @@
   import WeightEntry from "./WeightEntry.svelte";
   import Datepicker from "./Datepicker.svelte";
 
-  let dateFormat = "#{M} #{j}, #{y}";
+  let dateFormat = "#{M} #{j}";
   let formattedSelected;
   let value;
   let date;

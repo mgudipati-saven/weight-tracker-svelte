@@ -1,6 +1,6 @@
 {
-  "name": "Weight Tracker Svelte",
-  "short_name": "Wt Track",
+  "name": "Weight Tracker",
+  "short_name": "WT",
   "theme_color": "#5bd1d7",
   "background_color": "#f6f5f5",
   "display": "standalone",
